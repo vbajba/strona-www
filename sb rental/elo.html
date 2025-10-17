@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SB Rental — Szymon Bartłomiejczyk | Wynajem agregatów i masztów oświetleniowych</title>
+<meta name="description" content="SB Rental — profesjonalny wynajem agregatów prądotwórczych i masztów oświetleniowych. Sprzęt mobilny, sprawny serwis i szybka dostawa." />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#ffffff;
+--panel:#ffffff;
+--text:#000000;
+--muted:#333333;
+--accent:#125aa4;
+--accent-contrast:#ffffff;
+--max-width:1200px;
+--radius:8px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+margin:0;
+font-family:"Roboto",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial;
+background:linear-gradient(180deg,var(--bg),#f5f5f5);
+color:var(--text);
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+line-height:1.45;
+}
+
+/* Layout */
+.wrap{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+/* Header & Nav */
+header{
+background:#ffffff;
+position:sticky;top:0;z-index:50;
+border-bottom:1px solid rgba(0,0,0,0.08);
+backdrop-filter:blur(6px);
+transition:background .3s ease,border-color .3s ease;
+}
+header.scrolled{
+background:#ffffff;
+border-bottom-color:rgba(0,0,0,0.1);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.brand .title{font-family:"Montserrat",sans-serif;font-weight:700;letter-spacing:0.5px;color:#000}
+.brand .subtitle{font-size:12px;color:var(--muted);margin-top:2px}
+nav ul{list-style:none;padding:0;margin:0;display:flex;gap:18px;align-items:center}
+nav a{color:var(--text);text-decoration:none;font-weight:500;font-size:15px;padding:8px 10px;border-radius:6px}
+nav a:hover{background:rgba(0,0,0,0.05)}
+.menu-btn{display:none;background:transparent;border:0;color:var(--text);font-size:20px;padding:6px}
+
+/* Hero */
+.hero{position:relative;min-height:72vh;display:flex;align-items:center;color:var(--text);margin-bottom:40px;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background-size:cover;background-position:center center;filter:brightness(1) contrast(1);border-bottom:2px solid rgba(0,0,0,0.05);transition:transform .2s ease-out}
+.hero .overlay{position:absolute;inset:0;background:rgba(255,255,255,0.2)}
+.hero .content{position:relative;z-index:2;width:100%;padding:72px 0}
+.hero .inner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 24px;
+}
+.hero .inner > div{
+  background-color:#ffffff;
+  padding:24px 32px;
+  border-radius:12px;
+  color:#000000;
+  display:inline-block;
+  text-align:center;
+}
+.hero h1{
+  font-family:"Montserrat",sans-serif;
+  font-size: 46px;
+  margin:0 0 12px;
+  line-height: 1.02;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #000000;
+}
+.hero p.lead{color:var(--muted);font-size:16px;margin:0 0 18px}
+.cta{display:inline-flex;gap:10px;align-items:center}
+.btn{display:inline-block;padding:12px 18px;border-radius:8px;font-weight:700;text-decoration:none;transition:all .3s ease}
+.btn-primary{background:var(--accent);color:var(--accent-contrast);box-shadow:0 0 18px #0D3F73}
+.btn-primary:hover{box-shadow:0 0 28px #0D3F73;transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(0,0,0,0.1);color:var(--text);background:transparent}
+
+/* Sections */
+.section{padding:40px 0}
+.section h2{font-family:"Montserrat",sans-serif;margin:0 0 18px;font-size:28px}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--panel);padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.1);box-shadow:0 6px 18px rgba(0,0,0,0.2);display:flex;flex-direction:column;gap:10px;transition:all .3s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 28px rgba(0,0,0,0.25)}
+.card img{width:100%;height:180px;object-fit:cover;border-radius:6px}
+.card h3{margin:0;font-family:"Montserrat",sans-serif;font-size:16px;color:#000}
+.card p{margin:0;color:var(--muted);font-size:14px;flex:1}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gallery img{width:100%;height:160px;object-fit:cover;border-radius:6px;border:1px solid rgba(0,0,0,0.1);cursor:pointer;transition:transform .3s ease}
+.gallery img:hover{transform:scale(1.03)}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s ease;z-index:999}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox img{max-width:90%;max-height:90%;border-radius:8px;box-shadow:0 0 20px rgba(0,0,0,0.6)}
+
+/* Kontakt */
+.contact{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:start}
+form{background:var(--panel);padding:18px;border-radius:10px;border:1px solid rgba(0,0,0,0.1)}
+label{display:block;font-size:13px;margin:10px 0 6px;color:var(--muted)}
+input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.1);background:#ffffff;color:var(--text);transition:all .2s ease}
+textarea{min-height: 120px;resize: none;overflow: hidden}
+input:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 2px rgba(18,90,164,0.2);outline:none}
+.contact-info{padding:18px;background:#ffffff;border-radius:10px;border:1px solid rgba(0,0,0,0.1)}
+.contact-info h4{margin:0 0 10px}
+.muted{color:var(--muted);font-size:14px}
+
+/* Footer */
+footer{padding:28px 0;border-top:1px solid rgba(0,0,0,0.1);margin-top:40px;color:var(--text)}
+.flex-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+
+/* Animacje scroll reveal */
+.hidden{opacity:0;transform:translateY(30px);transition:all .8s ease}
+.show{opacity:1;transform:translateY(0)}
+
+/* Responsive */
+@media(max-width:1000px){
+.hero .inner{grid-template-columns:1fr;padding-bottom:36px}
+.cards{grid-template-columns:repeat(2,1fr)}
+.gallery{grid-template-columns:repeat(3,1fr)}
+.contact{grid-template-columns:1fr}
+.brand .title{display:none}
+}
+@media(max-width:700px){
+nav ul{display:none}
+.menu-btn{display:block}
+.cards{grid-template-columns:1fr}
+.gallery{grid-template-columns:repeat(2,1fr)}
+.hero h1{font-size:32px}
+}
+/* Mobile nav */
+.mobile-nav{display:none;position:absolute;right:20px;top:70px;background:var(--panel);border-radius:8px;padding:10px;border:1px solid rgba(0,0,0,0.1);box-shadow:0 10px 30px rgba(0,0,0,0.2)}
+.mobile-nav.open{display:block}
+.mobile-nav a{display:block;padding:8px 12px;border-radius:6px;color:var(--text)}
+.mobile-nav a:hover{background:rgba(0,0,0,0.05)}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap nav">
+<div class="brand">
+<div class="logo">
+  <img src="images/sbrental-logo.png" alt="SB Rental Logo">
+  </div>
+<div><div class="title">SB Rental</div><div class="subtitle">Szymon Bartłomiejczyk</div></div>
+</div>
+<nav>
+<button class="menu-btn" id="menuBtn" aria-label="Otwórz menu">☰</button>
+<ul id="topNav">
+<li><a href="#oferta">Oferta</a></li>
+<li><a href="#galeria">Galeria</a></li>
+<li><a href="#kontakt">Kontakt</a></li>
+</ul>
+</nav>
+<div id="mobileNav" class="mobile-nav" aria-hidden="true">
+<a href="#oferta" onclick="toggleMobile()">Oferta</a>
+<a href="#galeria" onclick="toggleMobile()">Galeria</a>
+<a href="#kontakt" onclick="toggleMobile()">Kontakt</a>
+</div>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero" aria-label="Hero">
+<div class="bg" style="background-image:url('images/hero-aggregat-maszt.jpg');"></div>
+<div class="overlay"></div>
+<div class="content">
+<div class="inner">
+<div>
+<h1>Profesjonalny wynajem agregatów<br>i masztów oświetleniowych</h1>
+<p class="lead">Wynajem agregatów, masztów oświetleniowych oraz sprzętu budowlanego.</p>
+<div class="cta">
+<a class="btn btn-primary" href="#kontakt">Zamów ofertę</a>
+<a class="btn btn-ghost" href="#oferta">Zobacz ofertę</a>
+</div>
+<div style="height:16px"></div>
+<div class="muted">Nr telefonu: <strong>+48 794 945 566</strong> • e-mail: <strong>kontakt@sbrental.pl</strong></div>
+</div>
+</div>
+</div>
+</section>
+
+<main class="wrap">
+<section id="oferta" class="section">
+<h2>Oferta</h2>
+<div class="cards">
+<article class="card">
+<img src="images/off-aggregaty.jpg" alt="Wynajem agregatów">
+<h3>Agregaty prądotwórcze</h3>
+<p>Zestawy prądotwórcze do eventów, budów i awarii. Dostępne wersje mobilne i stacjonarne. Dowóz i montaż.</p>
+<div style="margin-top:10px"><a class="btn btn-primary" href="#kontakt">Zapytaj o cenę</a></div>
+</article>
+<article class="card">
+<img src="images/off-maszty.jpg" alt="Maszty oświetleniowe">
+<h3>Maszty oświetleniowe</h3>
+<p>Maszty z wysięgnikami i reflektorami LED — szybkie rozstawianie, zasilanie z agregatu lub zewnętrzne.</p>
+<div style="margin-top:10px"><a class="btn btn-primary" href="#kontakt">Zamów montaż</a></div>
+</article>
+<article class="card">
+<img src="images/off-serwis.jpg" alt="Serwis i transport">
+<h3>Transport i serwis</h3>
+<p>Oferujemy transport sprzętu, montaż oraz serwis techniczny 24/7. Umowy krótkoterminowe i długoterminowe.</p>
+<div style="margin-top:10px"><a class="btn btn-primary" href="#kontakt">Skontaktuj się</a></div>
+</article>
+</div>
+</section>
+
+<section id="galeria" class="section">
+<h2>Galeria</h2>
+<div class="gallery">
+<img src="images/gallery1.jpg" alt="Agregat na przyczepie" />
+<img src="images/gallery2.jpg" alt="Maszt oświetleniowy w nocy" />
+<img src="images/gallery3.jpg" alt="Zestaw agregatów" />
+<img src="images/gallery4.jpg" alt="Maszty i reflektory" />
+</div>
+</section>
+
+<section id="kontakt" class="section">
+<h2>Kontakt</h2>
+<div class="contact">
+<form onsubmit="event.preventDefault();alert('Formularz demo — podmień backend lub użyj e-mail.');">
+<label for="name">Imię i nazwisko</label>
+<input id="name" name="name" required placeholder="Jan Kowalski">
+<label for="phone">Telefon</label>
+<input id="phone" name="phone" placeholder="+48 500 000 000">
+<label for="email">E-mail</label>
+<input id="email" name="email" type="email" placeholder="kontakt@firma.pl">
+<label for="message">Wiadomość / Zapytanie</label>
+<textarea id="message" name="message" placeholder="Napisz czego potrzebujesz..." required></textarea>
+<div style="margin-top:10px;display:flex;gap:10px;align-items:center">
+<button class="btn btn-primary" type="submit">Wyślij zapytanie</button>
+<a class="btn btn-ghost" href="tel:+48794945566">Zadzwoń: +48 794 945 566</a>
+</div>
+</form>
+<aside class="contact-info">
+<h4>SB Rental</h4>
+<div class="muted">Właściciel: Szymon Bartłomiejczyk</div>
+<div style="height:8px"></div>
+<div class="muted">Telefon: <strong>+48 794 945 566</strong></div>
+<div class="muted">E-mail: <strong>kontakt@sbrental.pl</strong></div>
+<div style="height:12px"></div>
+<div class="muted">Adres: ul. Wspólna 38B, 97-400 Bełchatów</div>
+</aside>
+</div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-content">
+    <div class="footer-info">
+      <strong>SB Rental</strong> • Szymon Bartłomiejczyk
+      <div class="muted">© 2025<span id="year"></span> Wszystkie prawa zastrzeżone.</div>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox"><img src="" alt="Podgląd zdjęcia"></div>
+
+<script>
+/* Scroll reveal animation */
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+   if(entry.isIntersecting){
+     entry.target.classList.add('show');
+     observer.unobserve(entry.target);
+   }
+ });
+},{threshold:0.15});
+document.querySelectorAll('.section, .hero .inner').forEach(el=>{
+ el.classList.add('hidden');
+ observer.observe(el);
+});
+
+/* Header scroll background */
+window.addEventListener('scroll',()=>{
+ const header=document.querySelector('header');
+ if(window.scrollY>80) header.classList.add('scrolled');
+ else header.classList.remove('scrolled');
+});
+
+/* Parallax hero background */
+window.addEventListener('scroll',()=>{
+ const bg=document.querySelector('.hero .bg');
+ const offset=window.scrollY*0.4;
+ bg.style.transform=`translateY(${offset}px)`;
+});
+
+/* Lightbox gallery */
+const galleryImgs=document.querySelectorAll('.gallery img');
+const lightbox=document.querySelector('.lightbox');
+galleryImgs.forEach(img=>{
+ img.addEventListener('click',()=>{
+  lightbox.querySelector('img').src=img.src;
+  lightbox.classList.add('open');
+ });
+});
+lightbox.addEventListener('click',()=>lightbox.classList.remove('open'));
+
+/* Mobile menu */
+const menuBtn=document.getElementById('menuBtn');
+const mobileNav=document.getElementById('mobileNav');
+function toggleMobile(){
+ mobileNav.classList.toggle('open');
+ const open=mobileNav.classList.contains('open');
+ mobileNav.setAttribute('aria-hidden',!open);
+}
+menuBtn.addEventListener('click',toggleMobile);
+
+document.querySelectorAll('img').forEach(img=>{
+  img.addEventListener('error', ()=> {
+    img.style.background = 'linear-gradient(180deg, rgba(18,90,164,0.12), rgba(18,90,164,0.04))';
+    img.style.objectFit = 'contain';
+    img.alt = 'Zdjęcie niedostępne';
+  });
+});
+
+const textarea = document.querySelector('textarea');
+if (textarea) {
+  textarea.addEventListener('input', () => {
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+  });
+}
+</script>
+
+</body>
+</html>
